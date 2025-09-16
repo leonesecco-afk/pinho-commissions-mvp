@@ -1,0 +1,27 @@
+# Render Blueprint Example for Pinho Commissions MVP
+services:
+  - type: web
+    name: pinho-commissions-api
+    env: docker
+    plan: free
+    region: oregon
+    dockerfile_path: backend/Dockerfile
+    build_command: ""
+    start_command: ""
+    env_vars:
+      - key: DATABASE_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: SECRET_KEY
+        sync: false
+      - key: APP_BASE_URL
+        sync: false
+      - key: OAUTH_GOOGLE_CLIENT_ID
+        sync: false
+      - key: OAUTH_GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: ALLOW_EMAIL_DOMAIN
+        sync: false
+      - key: MAX_GLOBAL_CLIENT_CAP_PERCENT
+        from: .env
